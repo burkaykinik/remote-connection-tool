@@ -1,15 +1,13 @@
 import socket
 import sys
+from libs import TCPConnection
+import dotenv
 
-
-port = 19143
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-s.settimeout(10)
-
-s.connect((sys.argv[1],port))
+dotenv.load_dotenv("config.env")
+TCP_PORT = int(os.getenv("TCP_PORT"))
+UDP_PORT = int(os.getenv("UDP_PORT"))
 
 while(True):
     command = input("&>   ")
     
+
